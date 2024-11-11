@@ -1,12 +1,18 @@
 <script setup lang="ts">
-  import { RouterLink, RouterView } from "vue-router";
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <RouterLink class="navbar-brand" to="/">
-        <i class="bi bi-question-square"></i>
+        <img
+          src="C:\Users\giber\Desktop\bs21inf5\sem07-project-GianBeram\engaging-quiz-sign-vector-bold-eyecatching-design-interactive-educational-graphics_579306-15541.avif"
+          alt="Quiz"
+          width="24"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
         Quiz
       </RouterLink>
       <button
