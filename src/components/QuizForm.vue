@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import QuestionRadio from '@/components/QuestionRadio.vue'
+
 import { computed, ref } from 'vue'
 
 const cheval = ref<string | null>(null)
@@ -7,7 +9,9 @@ const canton = ref<string | null>(null)
 
 const pattes = ref<string | null>(null)
 
-const filled = computed<boolean>(() => cheval.value && canton.value && pattes.value !== null)
+const filled = computed<boolean>(
+  () => cheval.value !== null && canton.value !== null && pattes.value !== null,
+)
 
 function reset() {
   cheval.value = null
@@ -17,7 +21,7 @@ function reset() {
 
 function submit(event: Event): void {
   let score = 0
-  let max_score = 3
+  const max_score = 3
   let phrase = ''
   if (cheval.value == 'blanc') {
     score += 1
@@ -46,6 +50,48 @@ function submit(event: Event): void {
 
 <template>
   <form @submit="submit">
+    <QuestionRadio
+      id="cheval"
+      v-model="cheval"
+      text="De quelle couleur est le cheval blanc de Napoléon ?"
+      :options="[
+        { value: 'blanc', text: 'Blanc' },
+        { value: 'brun', text: 'Brun' },
+        { value: 'noir', text: 'Noir' },
+        { value: 'gris', text: 'Gris' },
+      ]"
+    />
+  </form>
+  <form @submit="submit">
+    <QuestionRadio
+      id="canton"
+      v-model="canton"
+      text="Quelle est la capitale de la Suisse?"
+      :options="[
+        { value: 'bern', text: 'Bern' },
+        { value: 'geneve', text: 'Genève' },
+        { value: 'valais', text: 'Valais' },
+        { value: 'bale' , text: 'Bâle'}
+      ]"
+    />
+  </form>
+  <form @submit="submit">
+    <QuestionRadio
+      id="pattes"
+      v-model="pattes"
+      text="Combien de pattes possède un chat?"
+      :options="[
+        { value: 'quatre', text: '4' },
+        { value: 'une', text: '1' },
+        { value: 'huit', text: '8' },
+        { value: 'dix' , text: '10'}
+      ]"
+    />
+    <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
+  </form>
+  <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
+</template>
+<!-- <form @submit="submit">
     De quelle couleur est le cheval blanc de Napoléon ?
     <div class="form-check">
       <input
@@ -188,4 +234,4 @@ function submit(event: Event): void {
     <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
   </form>
   <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
-</template>
+</template> -->
