@@ -19,5 +19,6 @@ Pour rajouter des questions, j'ai copier coller le "squelette de la question qui
 
 Activité :                  Estimation :        Temps passé :       
 Question radio              30 minutes          30 minutes          
-Question Text               10 minutes           minutes          
+Question Text               10 minutes          1h              ça semble rapide mais il y a des éléments à rjouter dans le code donné et il faut savoir quoi raouter ce qui porend du temps. Pour rendre placeholder optionelle, rajouter un props. 
+Question Checkbox           30 minutes     
                

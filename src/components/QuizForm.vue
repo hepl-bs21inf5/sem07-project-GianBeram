@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import QuestionRadio from '@/components/QuestionRadio.vue'
-
+import QuestionText from '@/components/QuestionText.vue'
+import QuestionCheckbox from '@/components/QuestionCheckbox.vue'
 import { computed, ref } from 'vue'
 
 const cheval = ref<string | null>(null)
@@ -9,19 +10,26 @@ const canton = ref<string | null>(null)
 
 const pattes = ref<string | null>(null)
 
+const reponse_chat = ref<string | null>(null)
+
 const filled = computed<boolean>(
-  () => cheval.value !== null && canton.value !== null && pattes.value !== null,
+  () =>
+    cheval.value !== null &&
+    canton.value !== null &&
+    pattes.value !== null &&
+    reponse_chat.value !== null,
 )
 
 function reset() {
   cheval.value = null
   canton.value = null
   pattes.value = null
+  reponse_chat.value = null
 }
 
 function submit(event: Event): void {
   let score = 0
-  const max_score = 3
+  const max_score = 4
   let phrase = ''
   if (cheval.value == 'blanc') {
     score += 1
@@ -30,6 +38,9 @@ function submit(event: Event): void {
     score += 1
   }
   if (pattes.value == 'quatre') {
+    score += 1
+  }
+  if (reponse_chat.value == 'quatre' || reponse_chat.value == 'Quatre' || reponse_chat.value == '4'){
     score += 1
   }
   if (score == max_score) {
@@ -49,6 +60,13 @@ function submit(event: Event): void {
 </script>
 
 <template>
+  <form @submit="submit">
+    <QuestionText
+      id="chat"
+      v-model="reponse_chat"
+      text="Combien de pattes a un chat ?"
+    />
+  </form>
   <form @submit="submit">
     <QuestionRadio
       id="cheval"
@@ -71,7 +89,7 @@ function submit(event: Event): void {
         { value: 'bern', text: 'Bern' },
         { value: 'geneve', text: 'Genève' },
         { value: 'valais', text: 'Valais' },
-        { value: 'bale' , text: 'Bâle'}
+        { value: 'bale', text: 'Bâle' },
       ]"
     />
   </form>
@@ -84,7 +102,7 @@ function submit(event: Event): void {
         { value: 'quatre', text: '4' },
         { value: 'une', text: '1' },
         { value: 'huit', text: '8' },
-        { value: 'dix' , text: '10'}
+        { value: 'dix', text: '10' },
       ]"
     />
     <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
