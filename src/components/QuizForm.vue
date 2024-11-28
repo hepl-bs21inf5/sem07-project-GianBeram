@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import QuestionRadio from '@/components/QuestionRadio.vue'
 import QuestionText from '@/components/QuestionText.vue'
-import QuestionCheckbox from '@/components/QuestionCheckbox.vue'
 import { computed, ref } from 'vue'
 
 const cheval = ref<string | null>(null)
@@ -11,6 +10,12 @@ const canton = ref<string | null>(null)
 const pattes = ref<string | null>(null)
 
 const reponse_chat = ref<string | null>(null)
+
+const correctAnswers = ref<boolean[]>([])
+
+const score = computed<number>(() => correctAnswers.value.filter((value) => value).length);
+
+const totalScore = computed<number>(() => correctAnswers.value.length);
 
 const filled = computed<boolean>(
   () =>
@@ -70,7 +75,8 @@ function submit(event: Event): void {
   <form @submit="submit">
     <QuestionRadio
       id="cheval"
-      v-model="cheval"
+      v-model="correctAnswers[0]"
+      answer="blanc"
       text="De quelle couleur est le cheval blanc de Napoléon ?"
       :options="[
         { value: 'blanc', text: 'Blanc' },
@@ -83,7 +89,8 @@ function submit(event: Event): void {
   <form @submit="submit">
     <QuestionRadio
       id="canton"
-      v-model="canton"
+      v-model="correctAnswers[1]"
+      answer="bern"
       text="Quelle est la capitale de la Suisse?"
       :options="[
         { value: 'bern', text: 'Bern' },
@@ -96,7 +103,8 @@ function submit(event: Event): void {
   <form @submit="submit">
     <QuestionRadio
       id="pattes"
-      v-model="pattes"
+      v-model="correctAnswers[2]"
+      answer="quatre"
       text="Combien de pattes possède un chat?"
       :options="[
         { value: 'quatre', text: '4' },
@@ -106,150 +114,9 @@ function submit(event: Event): void {
       ]"
     />
     <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
+    <div>Réponses correctes : {{ correctAnswers }}</div>
+    <div>Score : {{ score }} / {{ totalScore }}</div>
   </form>
   <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
 </template>
-<!-- <form @submit="submit">
-    De quelle couleur est le cheval blanc de Napoléon ?
-    <div class="form-check">
-      <input
-        id="chevalBlanc"
-        v-model="cheval"
-        class="form-check-input"
-        type="radio"
-        name="cheval"
-        value="blanc"
-      />
-      <label class="form-check-label" for="chevalBlanc">Blanc</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="chevalBrun"
-        v-model="cheval"
-        class="form-check-input"
-        type="radio"
-        name="cheval"
-        value="brun"
-      />
-      <label class="form-check-label" for="chevalBrun">Brun</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="chevalNoir"
-        v-model="cheval"
-        class="form-check-input"
-        type="radio"
-        name="cheval"
-        value="noir"
-      />
-      <label class="form-check-label" for="chevalNoir">Noir</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="chevalGris"
-        v-model="cheval"
-        class="form-check-input"
-        type="radio"
-        name="cheval"
-        value="gris"
-      />
-      <label class="form-check-label" for="chevalGris">Gris</label>
-    </div>
-  </form>
-  <form @submit="submit">
-    Quel est la capitale de la Suisse
-    <div class="form-check">
-      <input
-        id="Genève"
-        v-model="canton"
-        class="form-check-input"
-        type="radio"
-        name="canton"
-        value="genève"
-      />
-      <label class="form-check-label" for="Genève">Genève</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="Bern"
-        v-model="canton"
-        class="form-check-input"
-        type="radio"
-        name="canton"
-        value="bern"
-      />
-      <label class="form-check-label" for="Bern">Bern</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="Vaud"
-        v-model="canton"
-        class="form-check-input"
-        type="radio"
-        name="canton"
-        value="vaud"
-      />
-      <label class="form-check-label" for="Vaud">Vaud</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="Valais"
-        v-model="canton"
-        class="form-check-input"
-        type="radio"
-        name="canton"
-        value="valais"
-      />
-      <label class="form-check-label" for="Valais">Valais</label>
-    </div>
-  </form>
-  <form @submit="submit">
-    Combien de pattes a un chat?
-    <div class="form-check">
-      <input
-        id="Deux"
-        v-model="pattes"
-        class="form-check-input"
-        type="radio"
-        name="pattes"
-        value="deux"
-      />
-      <label class="form-check-label" for="Deux">Deux</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="Une"
-        v-model="pattes"
-        class="form-check-input"
-        type="radio"
-        name="pattes"
-        value="une"
-      />
-      <label class="form-check-label" for="Une">Une</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="Quatre"
-        v-model="pattes"
-        class="form-check-input"
-        type="radio"
-        name="pattes"
-        value="quatre"
-      />
-      <label class="form-check-label" for="Quatre">Quatre</label>
-    </div>
-    <div class="form-check">
-      <input
-        id="Huit"
-        v-model="pattes"
-        class="form-check-input"
-        type="radio"
-        name="pattes"
-        value="huit"
-      />
-      <label class="form-check-label" for="Huit">Huit</label>
-    </div>
-    <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
-  </form>
-  <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
-</template> -->
+

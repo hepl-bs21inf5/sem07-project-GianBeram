@@ -22,4 +22,9 @@ Question radio              30 minutes          30 minutes
 Question Text               10 minutes          1h              ça semble rapide mais il y a des éléments à rjouter dans le code donné et il faut savoir quoi raouter ce qui porend du temps. Pour rendre placeholder optionelle, rajouter un props. 
 API                         1h
 Question Checkbox           30 minutes     
-               
+
+## Semaine 3
+
+Activité :                  Estimation :        Temps passé :    Commentaire :          
+Réponse                     1h                   40 min          je pensais que il faillait chercher ce qu'il fallait mettre mais tout était deja à disposition
+Score                       30 min               15 min
