@@ -1,24 +1,23 @@
 <script setup lang="ts">
 import { defineModel, defineProps } from 'vue'
-const reponse_chat = defineModel<string | null>();
+
+const reponse_chat = defineModel<string | null>()
 const props = defineProps({
   placeholder: {
     type: String,
-    default: 'Entrez un nombre'
-  }
+    default: 'Entrez un nombre',
+  },
 })
 </script>
 
 <template>
-<label for="exampleFormControlInput" class="form-label">
-  Combien de pattes a un chat ?
-</label>
-<input
-  id="exampleFormControlInput"
-  v-model="reponse_chat"
-  class="form-control"
-  :placeholder="props.placeholder"
-/>
+  <label for="exampleFormControlInput" class="form-label"> Combien de pattes a un chat ? </label>
+  <input
+    id="exampleFormControlInput"
+    v-model="reponse_chat"
+    class="form-control"
+    :placeholder="props.placeholder"
+  />
 </template>
 
 <!--
@@ -38,4 +37,3 @@ const reponse_chat = defineModel<string | null>();
 />
 </template>
 -->
-
