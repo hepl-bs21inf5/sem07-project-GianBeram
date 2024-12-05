@@ -4,8 +4,6 @@ import QuestionText from '@/components/QuestionText.vue'
 import { computed, ref } from 'vue'
 import { QuestionState } from '@/utils/models'
 
-const reponse_chat = ref<string | null>(null)
-
 const questionStates = ref<QuestionState[]>([])
 
 const score = computed<number>(
@@ -37,12 +35,17 @@ function submit(event: Event): void {
 
 <template>
   <form @submit="submit">
-    <QuestionText id="chat" v-model="reponse_chat" text="Combien de pattes a un chat ?" />
+    <QuestionText
+    id="chat"
+    v-model="questionStates[0]"
+    text="Combien de pattes a un chat ?"
+    answer="4"
+    />
   </form>
   <form @submit="submit">
     <QuestionRadio
       id="cheval"
-      v-model="questionStates[0]"
+      v-model="questionStates[1]"
       answer="blanc"
       text="De quelle couleur est le cheval blanc de Napoléon ?"
       :options="[
@@ -56,7 +59,7 @@ function submit(event: Event): void {
   <form @submit="submit">
     <QuestionRadio
       id="canton"
-      v-model="questionStates[1]"
+      v-model="questionStates[2]"
       answer="bern"
       text="Quelle est la capitale de la Suisse?"
       :options="[
@@ -70,7 +73,7 @@ function submit(event: Event): void {
   <form @submit="submit">
     <QuestionRadio
       id="pattes"
-      v-model="questionStates[2]"
+      v-model="questionStates[3]"
       answer="quatre"
       text="Combien de pattes possède un chat?"
       :options="[
