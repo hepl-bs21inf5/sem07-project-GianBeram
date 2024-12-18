@@ -1,6 +1,6 @@
 /* https://getbootstrap.com/docs/5.3/components/buttons/#variables */
-.btn-primary {
-      margin-top: 10px;
+  .btn-primary {
+    margin-top: 10px;
     --bs-btn-color: #fff;
     --bs-btn-bg: #fd0d0d;
     --bs-btn-border-color: #fd0d0d;
@@ -19,4 +19,5 @@
 
   .btn-secondary {
     margin-top: 10px;
+    margin-bottom: 20px;
   }

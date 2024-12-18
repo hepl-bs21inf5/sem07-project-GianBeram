@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { ref, watch, type PropType } from 'vue'
+import { ref, watch, type PropType, computed } from 'vue'
 import { QuestionState } from '@/utils/models'
 
 const model = defineModel<QuestionState>()
+const answer = computed<string>(
+  () => props.options.find((option) => option.value === props.answer)?.text ?? props.answer,
+)
 const props = defineProps({
   id: { type: String, required: true },
   text: { type: String, required: true },
   answer: { type: String, required: true },
+  answerDetail: { type: String, default: '' },
   options: {
     type: Array as PropType<Array<{ value: string; text: string }>>,
     required: true,
@@ -56,4 +60,10 @@ watch(
       {{ option.text }}
     </label>
   </div>
+  <div v-if="model === QuestionState.Correct || model === QuestionState.Wrong">
+    <p v-if="model === QuestionState.Correct" class="text-success">Juste !</p>
+    <p v-else class="text-danger">Faux ! La réponse était : {{ answer }}</p>
+    <p class="blockquote-footer">{{ props.answerDetail }}</p>
+  </div>
 </template>
+

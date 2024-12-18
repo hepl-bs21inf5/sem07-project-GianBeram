@@ -6,13 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <RouterLink class="navbar-brand" to="/">
-        <img
-          src="C:\Users\giber\Desktop\bs21inf5\sem07-project-GianBeram\engaging-quiz-sign-vector-bold-eyecatching-design-interactive-educational-graphics_579306-15541.avif"
-          alt="Quiz"
-          width="24"
-          height="24"
-          class="d-inline-block align-text-top"
-        />
+        <i class="bi bi-clipboard-check"></i>
         Quiz
       </RouterLink>
       <button
@@ -30,13 +24,13 @@ import { RouterLink, RouterView } from 'vue-router'
         <ul class="navbar-nav">
           <li class="nav-item">
             <RouterLink class="nav-link" to="/about">
-              <i class="bi bi-info-square"></i>
+              <i class="bi bi-chat-right-text"></i>
               À propos
             </RouterLink>
           </li>
           <li>
             <RouterLink class="nav-link" to="/trivia">
-              <i class="bi bi-question"></i>
+              <i class="bi bi-patch-question"></i>
               Trivia
             </RouterLink>
           </li>

@@ -7,7 +7,8 @@ const props = defineProps({
   id: { type: String, required: true },
   text: { type: String, required: true },
   answer: { type: String, required: true },
-  placeholder: { type: String, default: 'Entrez un nombre'},
+  answerDetail: { type: String, default: '' },
+  placeholder: { type: String, default: 'Entrez un nombre' },
 })
 
 const value = ref<string | null>(null)
@@ -31,64 +32,32 @@ watch(
   },
   { immediate: true },
 )
-
 </script>
 
 <template>
-  <label for= "props.id" class= "form-label" >
+  <label for="props.id" class="form-label">
     {{ props.text }}
   </label>
   <input
-      :id="props.id"
-      v-model="value"
-      class="form-control"
-      :disabled="
-        model === QuestionState.Submit ||
-        model === QuestionState.Correct ||
-        model === QuestionState.Wrong
-      "
-      :placeholder="props.placeholder"
-    />
-</template>
-
-
-
-<!--
-<script setup lang="ts">
-import { defineModel, defineProps } from 'vue'
-
-const reponse_chat = defineModel<string | null>()
-const props = defineProps({
-  placeholder: {
-    type: String,
-    default: 'Entrez un nombre',
-  },
-})
-</script>
-
-<template>
-  <label for="exampleFormControlInput" class="form-label"> Combien de pattes a un chat ? </label>
-  <input
-    id="exampleFormControlInput"
-    v-model="reponse_chat"
+    :id="props.id"
+    v-model="value"
     class="form-control"
+    :disabled="
+      model === QuestionState.Submit ||
+      model === QuestionState.Correct ||
+      model === QuestionState.Wrong
+    "
     :placeholder="props.placeholder"
   />
+  <div v-if="model === QuestionState.Correct || model === QuestionState.Wrong">
+    <p v-if="model === QuestionState.Correct" class="text-success">Juste !</p>
+    <p v-else class="text-danger">Faux ! La réponse était : {{ answer }}</p>
+    <p class="blockquote-footer">{{ props.answerDetail }}</p>
+  </div>
 </template>
 
-<script setup lang="ts">
-import { defineModel } from 'vue'
-const reponse_chat = defineModel<string | null>();
-</script>
-<template>
-<label for="exampleFormControlInput" class="form-label">
-  Combien de pattes a un chat ?
-</label>
-<input
-  id="exampleFormControlInput"
-  v-model="reponse_chat"
-  class="form-control"
-  placeholder="Veuillez saisir un nombre"
-/>
-</template>
--->
+<style scoped>
+.text-danger {
+  color: red !important;
+}
+</style>
