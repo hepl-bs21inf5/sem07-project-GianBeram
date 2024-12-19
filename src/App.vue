@@ -7,7 +7,11 @@ import { RouterLink, RouterView } from 'vue-router'
     <div class="container-fluid">
       <RouterLink class="navbar-brand" to="/">
         <i class="bi bi-clipboard-check"></i>
-        Quiz
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">Quiz</div>
+          </div>
+        </div>
       </RouterLink>
       <button
         class="navbar-toggler"
