@@ -5,14 +5,14 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <RouterLink class="navbar-brand" to="/">
-        <i class="bi bi-clipboard-check"></i>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-8">Quiz</div>
-          </div>
+      <div class="row justify-content-center w-100">
+        <div class="col-md-8">
+          <RouterLink class="navbar-brand" to="/">
+            <i class="bi bi-clipboard-check"></i>
+            Quiz
+          </RouterLink>
         </div>
-      </RouterLink>
+      </div>
       <button
         class="navbar-toggler"
         type="button"
