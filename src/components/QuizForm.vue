@@ -39,7 +39,7 @@ function submit(event: Event): void {
     <QuestionCheckbox
       id="animaux"
       v-model="questionStates[0]"
-      text="Quels sont les mammifères parmi les suivants?"
+      text="Quels sont les mammifères par"
       :answer="['chien', 'chat']"
       answer-detail="Les serpents et les poissons font des oeufs."
       :options="[
@@ -52,11 +52,11 @@ function submit(event: Event): void {
   </form>
   <form @submit="submit">
     <QuestionText
-      id="chat"
+      id="pokédex"
       v-model="questionStates[1]"
-      text="Combien de pattes a un chat ?"
-      answer-detail="Le chat est un mammifère quadrupède."
-      answer="4"
+      text="Quel est le numéro de Arceus dans le pokédex"
+      answer-detail="Victini est le 494ème, le premier pokémon du pokédex d'Unys."
+      answer="493"
     />
   </form>
   <form @submit="submit">
@@ -65,7 +65,7 @@ function submit(event: Event): void {
       v-model="questionStates[2]"
       answer="kioz0m"
       text="Quel grand joueur suisse de league of legends à pris sa retraite récemment (le 8.12.2024) ?"
-      answer-detail="Malheureusement ce n'est pas le très grand Gobelet."
+      answer-detail="Kioz0m le plus grand joueur de Suisse."
       :options="[
         { value: 'gobelet', text: 'Gobelet' },
         { value: 'kioz0m', text: 'Kioz0m' },
@@ -102,7 +102,21 @@ function submit(event: Event): void {
         { value: 'ocicroc', text: 'Ocicroc' },
       ]"
     />
-    <div>Debug états : {{ questionStates }}</div>
+    <form @submit="submit">
+      <QuestionCheckbox
+        id="talent"
+        v-model="questionStates[5]"
+        text="Parmi ces pokémons, lesquel(s) possède(nt) le talent intimidation?"
+        :answer="['Démétéros-t', 'Etouraptor']"
+        answer-detail="Intimidation est un talent qui baisse l'attaque de un cran."
+        :options="[
+          { value: 'dialga', text: 'Dialga' },
+          { value: 'demeteros-t', text: 'Démétéros-t' },
+          { value: 'carchacrok', text: 'Carchacrok' },
+          { value: 'etouraptor', text: 'Etouraptor' },
+        ]"
+      />
+    </form>
     <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
     <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
   </form>

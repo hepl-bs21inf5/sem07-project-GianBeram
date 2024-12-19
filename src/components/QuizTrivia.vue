@@ -70,7 +70,6 @@ fetch("https://opentdb.com/api.php?amount=10&type=multiple")
     />
     <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
   </form>
-  <div>Debug états : {{ questionStates }}</div>
   <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
   <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
 </template>

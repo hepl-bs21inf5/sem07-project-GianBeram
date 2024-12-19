@@ -33,37 +33,45 @@
 
 ### Question rapport
 
-Quelle est la différence entre un prop et un modèle (v-model) ? Un prop permet de transférer des données d'un composant parent à un document enfant, ça va uniquement de ce sens parent --> enfant. Tandis que le v-model lie une valeur entre un composant enfant et son parent, ça va dans les deux sens parent <---> enfant.
+|Question|Réponse|
+|--------|-------|
+|Quelle est la différence entre un prop et un modèle (v-model) ?| Un prop permet de transférer des données d'un composant parent à un document enfant, ça va uniquement de ce sens parent --> enfant. Tandis que le v-model lie une valeur entre un composant enfant et son parent, ça va dans les deux sens parent <---> enfant.|
+|Comment rendre la propriété placeholder optionnelle ?| Dans la définition des props, il faudrait rendre cette propriété optionelle. On peut utilisé la valeur par défaut qui est une chîne caractère vide. Dans le document parent, on peut définir nos question avec ou sans la propriété placeholder.|
 
-Comment rendre la propriété placeholder optionnelle ? Dans la définition des props, il faudrait rendre cette propriété optionelle. On peut utilisé la valeur par défaut qui est une chîne caractère vide. Dans le document parent, on peut définir nos question avec ou sans la propriété placeholder.
+&nbsp;
 
 ## Semaine 3
 
-Activité : Estimation : Temps passé : Commentaire :  
-Réponse 1h 40 min je pensais que il faillait chercher ce qu'il fallait mettre mais tout était deja à disposition
-Score 30 min 15 min
+|Activité| Estimation| Temps passé| Commentaire|
+|--------|-----------|------------|------------| 
+|Réponse| 1h| 40 min| je pensais que il faillait chercher ce qu'il fallait mettre mais tout était deja à disposition|
+|Score| 30 min| 15 min| Aucune difficulté|
 
 ### Question rapport
 
-À quoi sert l'option immediate: true dans le watch ? Que se passe-t-il si on l'enlève ou si on met immediate: false ?
+|Question|Réponse|
+|--------|-------|
+|À quoi sert l'option immediate: true dans le watch ? Que se passe-t-il si on l'enlève ou si on met immediate: false ?|a|
+|Proposer une autre manière de calculer le score (réécrire la fonction du computed) et comparer les deux méthodes.|a|
 
-Proposer une autre manière de calculer le score (réécrire la fonction du computed) et comparer les deux méthodes.
+&nbsp;
 
 ## Semaine 4
 
-Activité : Estimation : Temps passé :
-États 2h 1h + question rapport
-Boutons 1h 1h
-Réponses 5 min 5 min
+|Activité| Estimation| Temps passé |
+|--------|-----------|-------------|
+|États| 2h| 1h30| 
+|Boutons| 1h| 1h| 
+|Réponses| 5 min| 5 min|
 
 ### Question rapport
 
-Comment pourrait-on réécrire la ligne suivante sans l'opérateur ternaire (avec des if et else) ?
+|Question|Réponse|
+|--------|-------|
+|Comment pourrait-on réécrire la ligne suivante sans l'opérateur ternaire (avec des if et else) ? <br/> model.value = <br/> value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong;| |
+|Comment pourrait-on réécrire autrement la logique du watch sur value ?| |
 
-model.value =
-value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong;
-
-Comment pourrait-on réécrire autrement la logique du watch sur value ?
+&nbsp;
 
 ## Semaine 5
 
@@ -72,3 +80,24 @@ Comment pourrait-on réécrire autrement la logique du watch sur value ?
 | Réponse détaillé | 10 min | 15 min |  |
 | Style | 5 min | 2 min |  |
 
+### Question rapport
+
+Ajouter ce computed dans QuestionRadio.vue :
+
+const answerText = computed<string>(
+  () =>
+    props.options.find((option) => option.value === props.answer)?.text ??
+    props.answer,
+);
+
+Remplacer {{ props.answer }} par {{ answerText }} dans le template.
+
+Expliquer pourquoi on a fait ce changement ainsi que le code du computed.
+
+Que se passe-t-il lorsqu'on ne met pas de valeur à answer-detail ? Est-ce satisfaisant ? Si ce n'est pas le cas, proposer une amélioration.
+
+## Amélioration
+
+Adapté Trivia
+
+QuestionCheckBox
