@@ -35,90 +35,98 @@ function submit(event: Event): void {
 </script>
 
 <template>
-  <form @submit="submit">
-    <QuestionCheckbox
-      id="animaux"
-      v-model="questionStates[0]"
-      text="Quels sont les mammifères par"
-      :answer="['chien', 'chat']"
-      answer-detail="Les serpents et les poissons font des oeufs."
-      :options="[
-        { value: 'chien', text: 'Chien' },
-        { value: 'chat', text: 'Chat' },
-        { value: 'serpent', text: 'Serpent' },
-        { value: 'poisson', text: 'Poisson' },
-      ]"
-    />
-  </form>
-  <form @submit="submit">
-    <QuestionText
-      id="pokédex"
-      v-model="questionStates[1]"
-      text="Quel est le numéro de Arceus dans le pokédex"
-      answer-detail="Victini est le 494ème, le premier pokémon du pokédex d'Unys."
-      answer="493"
-    />
-  </form>
-  <form @submit="submit">
-    <QuestionRadio
-      id="lol"
-      v-model="questionStates[2]"
-      answer="kioz0m"
-      text="Quel grand joueur suisse de league of legends à pris sa retraite récemment (le 8.12.2024) ?"
-      answer-detail="Kioz0m le plus grand joueur de Suisse."
-      :options="[
-        { value: 'gobelet', text: 'Gobelet' },
-        { value: 'kioz0m', text: 'Kioz0m' },
-        { value: 'thyssouille', text: 'Thysouille' },
-        { value: 'morinonovorra', text: 'Morinonovorra' },
-      ]"
-    />
-  </form>
-  <form @submit="submit">
-    <QuestionRadio
-      id="pokemon"
-      v-model="questionStates[3]"
-      answer="chapignon"
-      text="Quel est l'évolution de Balignon"
-      answer-detail="C'est Chapignon le meilleure pokémon."
-      :options="[
-        { value: 'barguantua', text: 'Barguatua' },
-        { value: 'cizayox', text: 'Cizayox' },
-        { value: 'chapignon', text: 'Chapignon' },
-        { value: 'clamiral', text: 'Clamiral' },
-      ]"
-    />
-  </form>
-  <form @submit="submit">
-    <QuestionRadio
-      id="mario"
-      v-model="questionStates[4]"
-      answer="ocicroc"
-      text="Dans paper mario la porte millénaire quel est le boss final du donjon au 100 étages?"
-      answer-detail="C'est ocicroc, les 3 sont des dragons et sont soeurs."
-      :options="[
-        { value: 'carbocroc', text: 'Carbocroc' },
-        { value: 'toxicroc', text: 'Toxicroc' },
-        { value: 'ocicroc', text: 'Ocicroc' },
-      ]"
-    />
-    <form @submit="submit">
-      <QuestionCheckbox
-        id="talent"
-        v-model="questionStates[5]"
-        text="Parmi ces pokémons, lesquel(s) possède(nt) le talent intimidation?"
-        :answer="['Démétéros-t', 'Etouraptor']"
-        answer-detail="Intimidation est un talent qui baisse l'attaque de un cran."
-        :options="[
-          { value: 'dialga', text: 'Dialga' },
-          { value: 'demeteros-t', text: 'Démétéros-t' },
-          { value: 'carchacrok', text: 'Carchacrok' },
-          { value: 'etouraptor', text: 'Etouraptor' },
-        ]"
-      />
-    </form>
-    <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
-    <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
-  </form>
-  <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form class="mb-4" @submit="submit">
+          <QuestionCheckbox
+            id="smash"
+            v-model="questionStates[0]"
+            text="Quel(s) personnage(s) n'est pas présent dans smash bros ultimate?"
+            :answer="['Waluigi']"
+            answer-detail="Les serpents et les poissons font des oeufs."
+            :options="[
+              { value: 'pac-man', text: 'Pac-Man' },
+              { value: 'waluigi', text: 'Waluigi' },
+              { value: 'joker', text: 'Joker' },
+              { value: 'sephiroth', text: 'Sephiroth' },
+            ]"
+          />
+        </form>
+        <form class="mb-4" @submit="submit">
+          <QuestionText
+            id="pokédex"
+            v-model="questionStates[1]"
+            text="Quel est le numéro de Arceus dans le pokédex"
+            answer-detail="Victini est le 494ème, le premier pokémon du pokédex d'Unys."
+            answer="493"
+          />
+        </form>
+        <form class="mb-4" @submit="submit">
+          <QuestionRadio
+            id="lol"
+            v-model="questionStates[2]"
+            answer="kioz0m"
+            text="Quel grand joueur suisse de league of legends à pris sa retraite récemment (le 8.12.2024) ?"
+            answer-detail="Kioz0m le plus grand joueur de Suisse."
+            :options="[
+              { value: 'gobelet', text: 'Gobelet' },
+              { value: 'kioz0m', text: 'Kioz0m' },
+              { value: 'thyssouille', text: 'Thysouille' },
+              { value: 'morinonovorra', text: 'Morinonovorra' },
+            ]"
+          />
+        </form>
+        <form class="mb-4" @submit="submit">
+          <QuestionRadio
+            id="pokemon"
+            v-model="questionStates[3]"
+            answer="chapignon"
+            text="Quel est l'évolution de Balignon"
+            answer-detail="C'est Chapignon le meilleure pokémon."
+            :options="[
+              { value: 'barguantua', text: 'Barguatua' },
+              { value: 'cizayox', text: 'Cizayox' },
+              { value: 'chapignon', text: 'Chapignon' },
+              { value: 'clamiral', text: 'Clamiral' },
+            ]"
+          />
+        </form>
+        <form class="mb-4" @submit="submit">
+          <QuestionRadio
+            id="mario"
+            v-model="questionStates[4]"
+            answer="ocicroc"
+            text="Dans paper mario la porte millénaire quel est le boss final du donjon au 100 étages?"
+            answer-detail="C'est ocicroc, les 3 sont des dragons et sont soeurs."
+            :options="[
+              { value: 'carbocroc', text: 'Carbocroc' },
+              { value: 'toxicroc', text: 'Toxicroc' },
+              { value: 'ocicroc', text: 'Ocicroc' },
+            ]"
+          />
+          <form class="mb-4" @submit="submit">
+            <QuestionCheckbox
+              id="talent"
+              v-model="questionStates[5]"
+              text="Parmi ces pokémons, lesquel(s) possède(nt) le talent intimidation?"
+              :answer="['Démétéros-t', 'Etouraptor']"
+              answer-detail="Intimidation est un talent qui baisse l'attaque de un cran."
+              :options="[
+                { value: 'dialga', text: 'Dialga' },
+                { value: 'demeteros-t', text: 'Démétéros-t' },
+                { value: 'carchacrok', text: 'Carchacrok' },
+                { value: 'etouraptor', text: 'Etouraptor' },
+              ]"
+            />
+          </form>
+          <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
+          <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">
+            Terminer
+          </button>
+        </form>
+        <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
+      </div>
+    </div>
+  </div>
 </template>
