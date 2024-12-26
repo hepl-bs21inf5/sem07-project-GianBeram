@@ -83,7 +83,6 @@ function submit(event: Event): void {
             v-model="questionStates[3]"
             answer="chapignon"
             text="Quel est l'évolution de Balignon"
-            answer-detail="C'est Chapignon le meilleur pokémon."
             :options="[
               { value: 'barguantua', text: 'Barguatua' },
               { value: 'cizayox', text: 'Cizayox' },
