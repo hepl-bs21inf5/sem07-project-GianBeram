@@ -83,6 +83,7 @@ function submit(event: Event): void {
             v-model="questionStates[3]"
             answer="chapignon"
             text="Quel est l'évolution de Balignon"
+            answer-detail="C'est Chapignon, le meilleur pokémon."
             :options="[
               { value: 'barguantua', text: 'Barguatua' },
               { value: 'cizayox', text: 'Cizayox' },
@@ -110,7 +111,7 @@ function submit(event: Event): void {
               v-model="questionStates[5]"
               text="Parmi ces pokémons, lesquel(s) possède(nt) le talent intimidation?"
               :answer="['demeteros-t', 'etouraptor']"
-              answer-detail="Intimidation est un talent qui baisse l'attaque de un cran."
+              answer-detail="Intimidation est un talent qui baisse l'attaque d'un cran."
               :options="[
                 { value: 'dialga', text: 'Dialga' },
                 { value: 'demeteros-t', text: 'Démétéros-t' },
