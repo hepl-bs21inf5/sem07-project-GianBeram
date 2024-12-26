@@ -101,6 +101,8 @@ Dans le code de base avec props.answer lorsque la réponse sera affiché, ce qui
 
 Que se passe-t-il lorsqu'on ne met pas de valeur à answer-detail ? Est-ce satisfaisant ? Si ce n'est pas le cas, proposer une amélioration.
 
+Il n'y a pas de détail pour la réponse et il reste le tiret comme si il y avait du texte, ce qui peut être dérangeant. On peut mettre un message par défaut de la même manière que pour le placeholder dans QuestionText.
+
 ## Amélioration
 
 Adapté Trivia: Pour adapter trivia, j'ai ajouté tous ce qui était présent dans quizform qui n'était pas dans trivia. C'est-à-dire toutes les varibles, fonctions et boutons et dans le question radio de trivia j'ai rajouté les attributs restant.

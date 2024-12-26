@@ -7,7 +7,7 @@ const props = defineProps({
   id: { type: String, required: true },
   text: { type: String, required: true },
   answer: { type: Array as PropType<Array<string>>, required: true },
-  answerDetail: { type: String, default: '' },
+  answerDetail: { type: String, default: 'Pas de détails supplémentaires disponibles.' },
   options: {
     type: Array as PropType<Array<{ value: string; text: string }>>,
     required: true,
