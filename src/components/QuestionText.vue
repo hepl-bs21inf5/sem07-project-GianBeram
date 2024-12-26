@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch} from 'vue'
 import { QuestionState } from '@/utils/models'
 
 const model = defineModel<QuestionState>()

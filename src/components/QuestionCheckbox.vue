@@ -14,14 +14,14 @@ const props = defineProps({
   },
 })
 
-const checkedValues = ref<Array<string>>([])
+const checkedValues = ref<Array<string>>([]) //ref qui stock les cases cochées
 
 watch(model, (newModel) => {
   if (newModel === QuestionState.Submit) {
     const isCorrect =
-      checkedValues.value.length === props.answer.length &&
-      props.answer.every((ans) => checkedValues.value.includes(ans))
-    model.value = isCorrect ? QuestionState.Correct : QuestionState.Wrong //watch model avec chatgpt
+      checkedValues.value.length === props.answer.length && //vérifie si le nombres cases cochées vaut le nombre de réponses correctes
+      props.answer.every((ans) => checkedValues.value.includes(ans)) //vérifie si les réponses font parti des réponses cochées
+    model.value = isCorrect ? QuestionState.Correct : QuestionState.Wrong
   } else if (newModel === QuestionState.Empty) {
     checkedValues.value = []
   }
@@ -30,7 +30,7 @@ watch(model, (newModel) => {
 watch(
   checkedValues,
   (newValues) => {
-    if (newValues.length === 0) {
+    if (newValues.length === 0) { //ici on met un 0 car on est dans une liste, si la longueur de la liste vaut 0 donc une liste vide on est dans l'état empty
       model.value = QuestionState.Empty
     } else {
       model.value = QuestionState.Fill
@@ -66,32 +66,4 @@ watch(
   </div>
 </template>
 
-<!--
-<script setup lang="ts">
-import { ref } from 'vue'
-const checkedNames = ref([]);
-</script>
 
-<template>
-<div class="form-check">
-  <input
-    id="checkboxJane"
-    v-model="checkedNames"
-    class="form-check-input"
-    type="checkbox"
-    value="Jane"
-  />
-  <label class="form-check-label" for="checkboxJane">Jane</label>
-</div>
-<div class="form-check">
-  <input
-    id="checkboxJohn"
-    v-model="checkedNames"
-    class="form-check-input"
-    type="checkbox"
-    value="John"
-  />
-  <label class="form-check-label" for="checkboxJohn">John</label>
-</div>
-</template>
--->

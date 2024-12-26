@@ -1,5 +1,7 @@
 # Projet
 
+https://hepl-bs21inf5.github.io/sem07-project-GianBeram/
+
 ## Semaine 1
 
 | Activité  | Estimation | Temps passé | Commentaire                                                                                                                                                                                                                                                                                                                                                |
@@ -51,8 +53,9 @@
 
 |Question|Réponse|
 |--------|-------|
-|À quoi sert l'option immediate: true dans le watch ? Que se passe-t-il si on l'enlève ou si on met immediate: false ?|a|
-|Proposer une autre manière de calculer le score (réécrire la fonction du computed) et comparer les deux méthodes.|a|
+|À quoi sert l'option immediate: true dans le watch ? Que se passe-t-il si on l'enlève ou si on met immediate: false ?|L'immediate true permet de traiter les valeurs directement en leur donnant une valeur de base même si celle-ci n'as pas été touché, pour nos questions, dans le debug mode on a false partout pour nous dire qu'on a répondu à aucune question. Avec un immediate false, on traite les valeurs uniquements si elles ont été touché, dans le debug mode on aura du vide et une fois qu'on répond à une question on aura un True qui indique qu'on a répondu à la question.|
+|Proposer une autre manière de calculer le score (réécrire la fonction du computed) et comparer les deux méthodes.|La manière utilisé parcourt les valeurs de correctAnswers et utilise filter pour conserver uniquement les valeurs justes. On peut aussi utiliser un "reduce" (chatgpt) qui parcourt correctAnswers et à chaque fois qu'on tombe sur une bonne réponses on ajoute 1 au score. <br/> const score = computed<number>(() => <br/> correctAnswers.value.reduce((sum, value) => sum + (value ? 1 : 0), 0) <br/> );|
+
 
 &nbsp;
 
@@ -68,8 +71,8 @@
 
 |Question|Réponse|
 |--------|-------|
-|Comment pourrait-on réécrire la ligne suivante sans l'opérateur ternaire (avec des if et else) ? <br/> model.value = <br/> value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong;| |
-|Comment pourrait-on réécrire autrement la logique du watch sur value ?| |
+|Comment pourrait-on réécrire la ligne suivante sans l'opérateur ternaire (avec des if et else) ? <br/> model.value = <br/> value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong;|if (value.value === props.answer) { <br/> model.value = QuestionState.Correct; <br/> } else { <br/> model.value = QuestionState.Wrong; <br/>} |
+|Comment pourrait-on réécrire autrement la logique du watch sur value ?|On pourrait utilisé un opérateur ternaire comme sur le watch model. On aurait : <br/> model.value = newValue === null ? QuestionState.Empty : QuestionState.Fill;|
 
 &nbsp;
 
@@ -94,10 +97,12 @@ Remplacer {{ props.answer }} par {{ answerText }} dans le template.
 
 Expliquer pourquoi on a fait ce changement ainsi que le code du computed.
 
+Dans le code de base avec props.answer lorsque la réponse sera affiché, ce qui sera affiché est ce qui est contenu dans value. Par exemple dans mon code pour la première question la réponses afficher sera "waluigi" la valeur dans value au lieu de "Waluigi". Le answerText prend la valeur text associé à la valeur et affichera donc "Waluigi".
+
 Que se passe-t-il lorsqu'on ne met pas de valeur à answer-detail ? Est-ce satisfaisant ? Si ce n'est pas le cas, proposer une amélioration.
 
 ## Amélioration
 
-Adapté Trivia
+Adapté Trivia: Pour adapter trivia, j'ai ajouté tous ce qui était présent dans quizform qui n'était pas dans trivia. C'est-à-dire toutes les varibles, fonctions et boutons et dans le question radio de trivia j'ai rajouté les attributs restant.
 
-QuestionCheckBox
+QuestionCheckBox: J'ai pris Questionradio/text comme base puis je l'ai changé par rapport au modéle de checkbox qu'on avait dans la semaine 2. Pour adapté le model je me suis aidé de chatgpt sinon le reste est très similaire à questiontext/radio. Voire les commentaires sur le code pour plus de détails.

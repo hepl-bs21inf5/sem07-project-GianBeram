@@ -43,8 +43,8 @@ function submit(event: Event): void {
             id="smash"
             v-model="questionStates[0]"
             text="Quel(s) personnage(s) n'est pas présent dans smash bros ultimate?"
-            :answer="['Waluigi']"
-            answer-detail="Les serpents et les poissons font des oeufs."
+            :answer="['waluigi']"
+            answer-detail="Beaucoup de gens attendaient son arrivé sur smash ultimate."
             :options="[
               { value: 'pac-man', text: 'Pac-Man' },
               { value: 'waluigi', text: 'Waluigi' },
