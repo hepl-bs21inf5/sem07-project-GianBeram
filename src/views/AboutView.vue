@@ -2,13 +2,9 @@
   <div class="container mt-3">
     <h1>À propos</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+      C'est deuxième site, c'est un site avec un quiz avec différents types de questions. Des QCM, QCU et question réponse.
+      Les questions sont principalement des questions sur les jeux vidéos qui font partis de mes jeux favoris. Il existe la section Trivia avec des questions sur différents sujets qui proviennent de opentdb.
+      Ce site a été crée pour la validation du module d'informatique : BS21INF5 - Programmation Web et bases de données, pour le premier semestre de ma 2ème année à la HEP. Les critères sur le site et le code étaient les suivants.
     </p>
   </div>
 </template>
