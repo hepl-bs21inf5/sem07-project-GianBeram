@@ -105,6 +105,14 @@ Il n'y a pas de détail pour la réponse et il reste le tiret comme si il y avai
 
 ## Amélioration
 
-Adapté Trivia: Pour adapter trivia, j'ai ajouté tous ce qui était présent dans quizform qui n'était pas dans trivia. C'est-à-dire toutes les varibles, fonctions et boutons et dans le question radio de trivia j'ai rajouté les attributs restant.
+Trivia:
 
-QuestionCheckBox: J'ai pris Questionradio/text comme base puis je l'ai changé par rapport au modéle de checkbox qu'on avait dans la semaine 2. Pour adapté le model je me suis aidé de chatgpt sinon le reste est très similaire à questiontext/radio. Voire les commentaires sur le code pour plus de détails.
+J'ai choisi d'adapter Trivia car mes questions sont sur des sujets jeux vidéos et sur des jeux qui font partis de mes jeux favoris et ce n'est pas forcément adapter pour tous le monde et Trivia apporte pas mal de question sur différents sujets.
+
+Pour adapter trivia, j'ai ajouté tous ce qui était présent dans quizform qui n'était pas dans trivia. C'est-à-dire toutes les varibles, fonctions et boutons et dans le question radio de trivia j'ai rajouté les attributs restant.
+
+QuestionCheckBox: 
+
+J'ai choisi Checkbox pour diversifié les types de questions présents sur le site.
+
+J'ai pris Questionradio/text comme base puis je l'ai changé par rapport au modéle de checkbox qu'on avait dans la semaine 2. Pour adapté le model je me suis aidé de chatgpt sinon le reste est très similaire à questiontext/radio. Voire les commentaires sur le code pour plus de détails.
