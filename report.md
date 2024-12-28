@@ -121,3 +121,7 @@ J'ai pris Questionradio/text comme base puis je l'ai changé par rapport au mod�
 
 Pour amélioré Checkbox, on pourrait rajouté d'autre option de réponses qui s'interchangent entre-elles par exemple: On pourrait avoir la question "Parmi ces animaux, le(s)quelle(s) sont des insectes :", on pourrait avoir comme réponses : chien, chat, mouche, moustique, dauphin, éléphant et sur le sur on nous propose aléatoirement 4 options de réponses et toujours avoir au moins une bonne réponse. 
 
+## Source
+
+**Image de Lanssorien** : https://www.pinterest.com/pin/157555686954014713/
+
