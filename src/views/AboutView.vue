@@ -2,17 +2,18 @@
   <div class="container mt-3">
     <h1>À propos</h1>
     <p>
-      C'est deuxième site, c'est un site avec un quiz avec différents types de questions. Des QCM, QCU et question réponse.
-      Les questions sont principalement des questions sur les jeux vidéos qui font partis de mes jeux favoris. Il existe la section Trivia avec des questions sur différents sujets qui proviennent de opentdb.
-      Ce site a été crée pour la validation du module d'informatique : BS21INF5 - Programmation Web et bases de données, pour le premier semestre de ma 2ème année à la HEP. 
+      C'est le deuxième site que j'ai créé, un site proposant un quiz avec différents types de questions : des
+      QCM, des QCU et des questions ouvertes. Les questions portent principalement sur les jeux
+      vidéo qui figurent parmi mes favoris. Il existe une section Trivia avec des questions sur
+      différents sujets provenant de OpenTDB. Ce site a été créé pour la validation du module
+      d'informatique : BS21INF5 - Programmation Web et bases de données, lors du premier semestre de
+      ma 2ᵉ année à la HEP. 
     </p>
     <img
-    src="@/assets/dab479331cca130ce4a0f82f86dc3f00.png"
-    alt="Une image de Lanssorien"
-    class="img-fluid my-3"
+      src="@/assets/dab479331cca130ce4a0f82f86dc3f00.png"
+      alt="Une image de Lanssorien"
+      class="img-fluid my-3"
     />
-    <p class="text-center">
-      Bonne chance !!!
-    </p>
+    <p class="text-center">Bonne chance !!!</p>
   </div>
 </template>
