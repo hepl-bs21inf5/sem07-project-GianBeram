@@ -23,7 +23,7 @@ watch(model, (newModel) => {
       props.answer.every((ans) => checkedValues.value.includes(ans)) // vérifie si les réponses font parti des réponses cochées
     model.value = isCorrect ? QuestionState.Correct : QuestionState.Wrong
   } else if (newModel === QuestionState.Empty) {
-    checkedValues.value = [] // si on ne répond pas à une question la valeur est vide
+    checkedValues.value = [] // si on ne répond pas à une question la liste est vide
   }
 })
 
