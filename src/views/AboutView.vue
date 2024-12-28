@@ -7,7 +7,7 @@
       Ce site a été crée pour la validation du module d'informatique : BS21INF5 - Programmation Web et bases de données, pour le premier semestre de ma 2ème année à la HEP. Les critères sur le site et le code étaient les suivants.
     </p>
     <img
-    src="views\image\dab479331cca130ce4a0f82f86dc3f00.png"
+    src="\image\dab479331cca130ce4a0f82f86dc3f00.png"
     alt="Une image de Lanssorien"
     class="img-fluid my-3"
     />
