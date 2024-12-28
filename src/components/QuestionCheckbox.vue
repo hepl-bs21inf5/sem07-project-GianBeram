@@ -2,41 +2,41 @@
 import { ref, watch, type PropType } from 'vue'
 import { QuestionState } from '@/utils/models'
 
-const model = defineModel<QuestionState>()
+const model = defineModel<QuestionState>() // modèle lié à l'état de la question
 const props = defineProps({
-  id: { type: String, required: true },
-  text: { type: String, required: true },
-  answer: { type: Array as PropType<Array<string>>, required: true },
-  answerDetail: { type: String, default: 'Pas de détails supplémentaires disponibles.' },
+  id: { type: String, required: true }, // identifiant de la question
+  text: { type: String, required: true }, // texte de la question
+  answer: { type: Array as PropType<Array<string>>, required: true }, // réponse(s) de la question
+  answerDetail: { type: String, default: 'Pas de détails supplémentaires disponibles.' }, // détail à propos de la question
   options: {
-    type: Array as PropType<Array<{ value: string; text: string }>>,
+    type: Array as PropType<Array<{ value: string; text: string }>>, // liste des réponses possibles
     required: true,
   },
 })
 
-const checkedValues = ref<Array<string>>([]) //ref qui stock les cases cochées
+const checkedValues = ref<Array<string>>([]) // variable réactive qui contient le(s) case(s) cochée(s)
 
 watch(model, (newModel) => {
   if (newModel === QuestionState.Submit) {
     const isCorrect =
-      checkedValues.value.length === props.answer.length && //vérifie si le nombres cases cochées vaut le nombre de réponses correctes
-      props.answer.every((ans) => checkedValues.value.includes(ans)) //vérifie si les réponses font parti des réponses cochées
+      checkedValues.value.length === props.answer.length && // vérifie si le nombres cases cochées vaut le nombre de réponses correctes
+      props.answer.every((ans) => checkedValues.value.includes(ans)) // vérifie si les réponses font parti des réponses cochées
     model.value = isCorrect ? QuestionState.Correct : QuestionState.Wrong
   } else if (newModel === QuestionState.Empty) {
-    checkedValues.value = []
+    checkedValues.value = [] // si on ne répond pas à une question la valeur est vide
   }
 })
 
 watch(
   checkedValues,
   (newValues) => {
-    if (newValues.length === 0) { //ici on met un 0 car on est dans une liste, si la longueur de la liste vaut 0 donc une liste vide on est dans l'état empty
-      model.value = QuestionState.Empty
+    if (newValues.length === 0) { // ici on met un 0 car on est dans une liste, si la longueur de la liste vaut 0 donc une liste vide on est dans l'état empty
+      model.value = QuestionState.Empty // si on ne répond pas à une question l'état est "vide"
     } else {
-      model.value = QuestionState.Fill
+      model.value = QuestionState.Fill // si on répond à une question l'état est "remplis"
     }
   },
-  { immediate: true },
+  { immediate: true }, // le watch est executé au début
 )
 </script>
 

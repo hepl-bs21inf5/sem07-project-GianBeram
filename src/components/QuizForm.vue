@@ -5,32 +5,32 @@ import QuestionCheckbox from '@/components/QuestionCheckbox.vue'
 import { computed, ref } from 'vue'
 import { QuestionState } from '@/utils/models'
 
-const questionStates = ref<QuestionState[]>([])
+const questionStates = ref<QuestionState[]>([]) // variable réactive qui contient l'état des questions
 
 const score = computed<number>(
-  () => questionStates.value.filter((state) => state === QuestionState.Correct).length,
+  () => questionStates.value.filter((state) => state === QuestionState.Correct).length, // computed qui contient le score du quiz
 )
 
-const totalScore = computed<number>(() => questionStates.value.length)
+const totalScore = computed<number>(() => questionStates.value.length) // computed qui contient le score maximal du quiz
 
 const filled = computed<boolean>(() =>
-  questionStates.value.every((state) => state === QuestionState.Fill),
+  questionStates.value.every((state) => state === QuestionState.Fill), // computed qui permet de terminer le quiz si l'état de toutes les questions est "filled"
 )
 
 const submitted = computed<boolean>(() =>
   questionStates.value.every(
-    (state) => state === QuestionState.Correct || state === QuestionState.Wrong,
+    (state) => state === QuestionState.Correct || state === QuestionState.Wrong, // computed qui indique si les questions sont justes ou fausses
   ),
 )
 
 function reset(event: Event): void {
   event.preventDefault()
-  questionStates.value = questionStates.value.map(() => QuestionState.Empty)
+  questionStates.value = questionStates.value.map(() => QuestionState.Empty) // fonction qui reset le quiz
 }
 
 function submit(event: Event): void {
   event.preventDefault()
-  questionStates.value = questionStates.value.map(() => QuestionState.Submit)
+  questionStates.value = questionStates.value.map(() => QuestionState.Submit) // fonction qui termine le quiz
 }
 </script>
 

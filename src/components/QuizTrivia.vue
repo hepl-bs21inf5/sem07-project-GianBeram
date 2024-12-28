@@ -3,50 +3,51 @@ import QuestionRadio from "@/components/QuestionRadio.vue";
 import { reactive, ref, computed } from "vue";
 import { QuestionState } from "@/utils/models";
 
-const questions = ref<
+const questions = ref< // contient les questions du quiz
   {
-    question: string;
-    correct_answer: string;
-    incorrect_answers: string[];
+    question: string; // texte de la question
+    correct_answer: string; // réponse correcte
+    incorrect_answers: string[]; // listes des réponses fausses
   }[]
 >([]);
 
-const answers = reactive<{ [key: number]: QuestionState }>({});
-const questionStates = ref<QuestionState[]>([]);
+const answers = reactive<{ [key: number]: QuestionState }>({}); // associe à chaque question son état
+
+const questionStates = ref<QuestionState[]>([]); // variable réactive qui contient l'état des questions
 
 const score = computed<number>(
-  () => questionStates.value.filter((state) => state === QuestionState.Correct).length
+  () => questionStates.value.filter((state) => state === QuestionState.Correct).length // computed qui contient le score du quiz
 );
 
-const totalScore = computed<number>(() => questionStates.value.length);
+const totalScore = computed<number>(() => questionStates.value.length); // computed qui contient le score maximal du quiz
 
 const filled = computed<boolean>(() =>
-  questionStates.value.every((state) => state === QuestionState.Fill)
+  questionStates.value.every((state) => state === QuestionState.Fill) // computed qui permet de terminer le quiz si l'état de toutes les questions est "filled"
 );
 
 const submitted = computed<boolean>(() =>
   questionStates.value.every(
-    (state) => state === QuestionState.Correct || state === QuestionState.Wrong
+    (state) => state === QuestionState.Correct || state === QuestionState.Wrong // computed qui indique si les questions sont justes ou fausses
   )
 );
 
 function reset(event: Event): void {
   event.preventDefault();
-  questionStates.value = questionStates.value.map(() => QuestionState.Empty);
+  questionStates.value = questionStates.value.map(() => QuestionState.Empty); // fonction qui reset le quiz
 }
 
 function submit(event: Event): void {
   event.preventDefault();
-  questionStates.value = questionStates.value.map(() => QuestionState.Submit);
+  questionStates.value = questionStates.value.map(() => QuestionState.Submit); // fonction qui termine le quiz
 }
 
 fetch("https://opentdb.com/api.php?amount=10&type=multiple")
-  .then((response) => response.json())
+  .then((response) => response.json()) 
   .then((data) => {
-    questions.value = data.results;
+    questions.value = data.results; // met les questions dans la variable "questions"
     questions.value.forEach((_, index) => {
-      answers[index] = QuestionState.Empty; // Initialize question state
-      questionStates.value.push(QuestionState.Empty);
+      answers[index] = QuestionState.Empty; // au début l'état de chaque question est empty
+      questionStates.value.push(QuestionState.Empty); // ajoute les états à "questionStates"
     });
   });
 </script>
