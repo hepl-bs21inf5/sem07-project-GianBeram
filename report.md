@@ -85,34 +85,38 @@ https://hepl-bs21inf5.github.io/sem07-project-GianBeram/
 
 ### Question rapport
 
-Ajouter ce computed dans QuestionRadio.vue :
+**Ajouter ce computed dans QuestionRadio.vue :**
 
-const answerText = computed<string>(
-  () =>
-    props.options.find((option) => option.value === props.answer)?.text ??
-    props.answer,
-);
+**const answerText = computed<string>(**
+  **() =>**
+    **props.options.find((option) => option.value === props.answer)?.text ??**
+    **props.answer,**
+**);**
 
-Remplacer {{ props.answer }} par {{ answerText }} dans le template.
+**Remplacer {{ props.answer }} par {{ answerText }} dans le template.**
 
-Expliquer pourquoi on a fait ce changement ainsi que le code du computed.
+**Expliquer pourquoi on a fait ce changement ainsi que le code du computed.**
 
 Dans le code de base avec props.answer lorsque la réponse sera affiché, ce qui sera affiché est ce qui est contenu dans value. Par exemple dans mon code pour la première question la réponses afficher sera "waluigi" la valeur dans value au lieu de "Waluigi". Le answerText prend la valeur text associé à la valeur et affichera donc "Waluigi".
 
-Que se passe-t-il lorsqu'on ne met pas de valeur à answer-detail ? Est-ce satisfaisant ? Si ce n'est pas le cas, proposer une amélioration.
+**Que se passe-t-il lorsqu'on ne met pas de valeur à answer-detail ? Est-ce satisfaisant ? Si ce n'est pas le cas, proposer une amélioration.**
 
 Il n'y a pas de détail pour la réponse et il reste le tiret comme si il y avait du texte, ce qui peut être dérangeant. On peut mettre un message par défaut de la même manière que pour le placeholder dans QuestionText.
 
 ## Amélioration
 
-Trivia:
+**Trivia :**
 
 J'ai choisi d'adapter Trivia car mes questions sont sur des sujets jeux vidéos et sur des jeux qui font partis de mes jeux favoris et ce n'est pas forcément adapter pour tous le monde et Trivia apporte pas mal de question sur différents sujets.
 
-Pour adapter trivia, j'ai ajouté tous ce qui était présent dans quizform qui n'était pas dans trivia. C'est-à-dire toutes les varibles, fonctions et boutons et dans le question radio de trivia j'ai rajouté les attributs restant.
+Pour adapter trivia, j'ai ajouté tous ce qui était présent dans quizform qui n'était pas dans trivia. C'est-à-dire toutes les varibles, fonctions et boutons et dans le question radio de trivia j'ai rajouté les attributs restant, c'est-à-dire : ":option", ":answer", etc...
 
-QuestionCheckBox: 
+Pour aller plus loin je pourrai faire en sorte que l'ordre des réponses pour chaque question soit aléatoire.
+
+**QuestionCheckbox :**
 
 J'ai choisi Checkbox pour diversifié les types de questions présents sur le site.
 
 J'ai pris Questionradio/text comme base puis je l'ai changé par rapport au modéle de checkbox qu'on avait dans la semaine 2. Pour adapté le model je me suis aidé de chatgpt sinon le reste est très similaire à questiontext/radio. Voire les commentaires sur le code pour plus de détails.
+
+Pour amélioré QuestionCheckbox je pourrai rajouter le "answerText" mais je ne trouve pas comment le faire. J'ai essayé de faire comme pour questionRadio mais ça ne fonctionne pas.
