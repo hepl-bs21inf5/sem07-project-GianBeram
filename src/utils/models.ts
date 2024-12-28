@@ -4,4 +4,4 @@ export enum QuestionState {
   Submit = "Submit",
   Correct = "Correct",
   Wrong = "Wrong",
-}
+} // contient les états des questions
