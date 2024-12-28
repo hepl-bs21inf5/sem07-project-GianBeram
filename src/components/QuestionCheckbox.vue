@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref, watch, type PropType } from 'vue'
+import { ref, watch, type PropType, computed } from 'vue'
 import { QuestionState } from '@/utils/models'
 
 const model = defineModel<QuestionState>() // modèle lié à l'état de la question
+const answerText = computed<string>(() => // associe chaque valeur à son texte associé, la méthode utilise map() et join() en plus
+  props.answer.map((ans) => props.options.find((option) => option.value === ans)?.text ?? ans).join(', '),
+) // map() parcout chaque élément de props.answer et associe le texte à la valeur, join () combine tous ce qui est obtenu par map() en une seule chaine de caractère qui utilise une virgule pour séparer les textes
 const props = defineProps({
   id: { type: String, required: true }, // identifiant de la question
   text: { type: String, required: true }, // texte de la question
@@ -30,7 +33,8 @@ watch(model, (newModel) => {
 watch(
   checkedValues,
   (newValues) => {
-    if (newValues.length === 0) { // ici on met un 0 car on est dans une liste, si la longueur de la liste vaut 0 donc une liste vide on est dans l'état empty
+    if (newValues.length === 0) {
+      // ici on met un 0 car on est dans une liste, si la longueur de la liste vaut 0 donc une liste vide on est dans l'état empty
       model.value = QuestionState.Empty // si on ne répond pas à une question l'état est "vide"
     } else {
       model.value = QuestionState.Fill // si on répond à une question l'état est "remplis"
@@ -61,9 +65,7 @@ watch(
   </div>
   <div v-if="model === QuestionState.Correct || model === QuestionState.Wrong">
     <p v-if="model === QuestionState.Correct" class="text-success">Juste !</p>
-    <p v-else class="text-danger">Faux ! La réponse était : {{ answer }}</p>
+    <p v-else class="text-danger">Faux ! La réponse était : {{ answerText }}</p>
     <p class="blockquote-footer">{{ props.answerDetail }}</p>
   </div>
 </template>
-
-

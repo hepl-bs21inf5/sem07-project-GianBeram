@@ -117,6 +117,7 @@ Pour aller plus loin je pourrai faire en sorte que l'ordre des réponses pour ch
 
 J'ai choisi Checkbox pour diversifié les types de questions présents sur le site.
 
-J'ai pris Questionradio/text comme base puis je l'ai changé par rapport au modéle de checkbox qu'on avait dans la semaine 2. Pour adapté le model je me suis aidé de chatgpt sinon le reste est très similaire à questiontext/radio. Voire les commentaires sur le code pour plus de détails.
+J'ai pris Questionradio/text comme base puis je l'ai changé par rapport au modéle de checkbox qu'on avait dans la semaine 2. Pour adapté le model je me suis aidé de chatgpt sinon le reste est très similaire à questiontext/radio. Voire les commentaires sur le code pour plus de détails. La fonctionnalité answerText a été faites à l'aide de chatgpt aussi. 
 
-Pour amélioré QuestionCheckbox je pourrai rajouter le "answerText" mais je ne trouve pas comment le faire. J'ai essayé de faire comme pour questionRadio mais ça ne fonctionne pas.
+Pour amélioré Checkbox, on pourrait rajouté d'autre option de réponses qui s'interchangent entre-elles par exemple: On pourrait avoir la question "Parmi ces animaux, le(s)quelle(s) sont des insectes :", on pourrait avoir comme réponses : chien, chat, mouche, moustique, dauphin, éléphant et sur le sur on nous propose aléatoirement 4 options de réponses et toujours avoir au moins une bonne réponse. 
+
