@@ -16,4 +16,4 @@
     />
     <p class="text-center">Bonne chance !!!</p>
   </div>
-</template> a
+</template> 
