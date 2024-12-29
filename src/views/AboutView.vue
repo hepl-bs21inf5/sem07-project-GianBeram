@@ -7,7 +7,7 @@
       vidéo qui figurent parmi mes favoris. Il existe une section Trivia avec des questions sur
       différents sujets provenant de OpenTDB. Ce site a été créé pour la validation du module
       d'informatique : BS21INF5 - Programmation Web et bases de données, lors du premier semestre de
-      ma 2ᵉ année à la HEP. 
+      ma 2ᵉ année à la HEP.
     </p>
     <img
       src="@/assets/dab479331cca130ce4a0f82f86dc3f00.png"
@@ -16,4 +16,4 @@
     />
     <p class="text-center">Bonne chance !!!</p>
   </div>
-</template>
+</template> a
